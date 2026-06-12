@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spice Shop — Authentic Indian Bistro & Grocery in Dieppe, NB</title>
+<meta name="description" content="Spice Shop is Dieppe's women-owned Indian bistro & grocery. Authentic Punjabi cuisine, catering, curbside pickup & delivery at 75 Champlain St.">
+<meta property="og:title" content="Spice Shop — Indian Bistro & Grocery, Dieppe NB">
+<meta property="og:description" content="Authentic Indian flavors, women-owned, in the heart of Dieppe.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --background: #0a0908;
+    --foreground: #ece4d6;
+    --charcoal: #0f0f0f;
+    --clay: #2a1b18;
+    --gold: #d4af37;
+    --gold-soft: #b8961f;
+    --saffron: #f4a261;
+    --ember: #c2410c;
+    --bone: #fdfcf6;
+    --muted: #1a1614;
+    --muted-foreground: #9a8f80;
+    --border: rgba(212, 175, 55, 0.12);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; border-color: var(--border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: rgba(212, 175, 55, 0.35); color: var(--bone); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* Utilities */
+  .font-serif { font-family: "Playfair Display", ui-serif, Georgia, serif; }
+  .font-sans { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; }
+  .text-gold { color: var(--gold); }
+  .text-bone { color: var(--bone); }
+  .text-muted-foreground { color: var(--muted-foreground); }
+  .text-bone-70 { color: rgba(253, 252, 246, 0.70); }
+  .text-bone-75 { color: rgba(253, 252, 246, 0.75); }
+  .text-bone-60 { color: rgba(253, 252, 246, 0.60); }
+  .text-bone-80 { color: rgba(253, 252, 246, 0.80); }
+  .text-bone-90 { color: rgba(253, 252, 246, 0.90); }
+  .bg-charcoal { background: var(--charcoal); }
+  .bg-background { background: var(--background); }
+  .bg-muted { background: var(--muted); }
+  .bg-gold { background: var(--gold); }
+  .bg-saffron { background: var(--saffron); }
+  .bg-clay-20 { background: rgba(42, 27, 24, 0.20); }
+  .bg-clay-30 { background: rgba(42, 27, 24, 0.30); }
+  .bg-gradient-br { background: linear-gradient(to bottom right, var(--clay), var(--charcoal), var(--charcoal)); }
+  .border-border { border-color: var(--border); }
+  .border-gold { border-color: var(--gold); }
+  .border-gold-30 { border-color: rgba(212, 175, 55, 0.30); }
+  .border-gold-40 { border-color: rgba(212, 175, 55, 0.40); }
+
+  /* Layout */
+  .container { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+  @media (min-width: 768px) { .container { padding-left: 2.5rem; padding-right: 2.5rem; } }
+  .flex { display: flex; }
+  .inline-flex { display: inline-flex; }
+  .grid { display: grid; }
+  .hidden { display: none; }
+  .block { display: block; }
+  .flex-col { flex-direction: column; }
+  .flex-wrap { flex-wrap: wrap; }
+  .justify-between { justify-content: space-between; }
+  .justify-center { justify-content: center; }
+  .justify-end { justify-content: flex-end; }
+  .items-center { align-items: center; }
+  .items-baseline { align-items: baseline; }
+  .self-start { align-self: flex-start; }
+  .self-end { align-self: flex-end; }
+  .gap-2 { gap: 0.5rem; }
+  .gap-3 { gap: 0.75rem; }
+  .gap-4 { gap: 1rem; }
+  .gap-5 { gap: 1.25rem; }
+  .gap-8 { gap: 2rem; }
+  .gap-10 { gap: 2.5rem; }
+  .gap-12 { gap: 3rem; }
+  .gap-16 { gap: 4rem; }
+  .gap-24 { gap: 6rem; }
+  .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .aspect-4-5 { aspect-ratio: 4 / 5; }
+  .aspect-4-3 { aspect-ratio: 4 / 3; }
+  .aspect-square { aspect-ratio: 1 / 1; }
+  .object-cover { object-fit: cover; }
+  .relative { position: relative; }
+  .absolute { position: absolute; }
+  .fixed { position: fixed; }
+  .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+  .inset-x-0 { left: 0; right: 0; }
+  .top-0 { top: 0; }
+  .z-0 { z-index: 0; }
+  .z-10 { z-index: 10; }
+  .z-50 { z-index: 50; }
+  .overflow-hidden { overflow: hidden; }
+  .overflow-x-hidden { overflow-x: hidden; }
+  .whitespace-nowrap { white-space: nowrap; }
+  .cursor-pointer { cursor: pointer; }
+  .pointer-events-none { pointer-events: none; }
+  .order-1 { order: 1; }
+  .order-2 { order: 2; }
+
+  /* Spacing */
+  .px-4 { padding-left: 1rem; padding-right: 1rem; }
+  .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .px-8 { padding-left: 2rem; padding-right: 2rem; }
+  .px-9 { padding-left: 2.25rem; padding-right: 2.25rem; }
+  .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+  .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+  .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+  .py-28 { padding-top: 7rem; padding-bottom: 7rem; }
+  .pt-5 { padding-top: 1.25rem; }
+  .pt-8 { padding-top: 2rem; }
+  .pt-14 { padding-top: 3.5rem; }
+  .pt-20 { padding-top: 5rem; }
+  .pt-32 { padding-top: 8rem; }
+  .pb-1 { padding-bottom: 0.25rem; }
+  .pb-2 { padding-bottom: 0.5rem; }
+  .pb-3 { padding-bottom: 0.75rem; }
+  .pb-6 { padding-bottom: 1.5rem; }
+  .pb-20 { padding-bottom: 5rem; }
+  .pb-24 { padding-bottom: 6rem; }
+  .pl-5 { padding-left: 1.25rem; }
+  .mb-2 { margin-bottom: 0.5rem; }
+  .mb-3 { margin-bottom: 0.75rem; }
+  .mb-5 { margin-bottom: 1.25rem; }
+  .mb-6 { margin-bottom: 1.5rem; }
+  .mb-8 { margin-bottom: 2rem; }
+  .mb-10 { margin-bottom: 2.5rem; }
+  .mb-12 { margin-bottom: 3rem; }
+  .mb-16 { margin-bottom: 4rem; }
+  .mb-20 { margin-bottom: 5rem; }
+  .mt-6 { margin-top: 1.5rem; }
+  .mt-8 { margin-top: 2rem; }
+  .mt-14 { margin-top: 3.5rem; }
+  .mt-20 { margin-top: 5rem; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .space-y-2 > * + * { margin-top: 0.5rem; }
+  .space-y-8 > * + * { margin-top: 2rem; }
+
+  /* Borders */
+  .border { border-width: 1px; border-style: solid; }
+  .border-b { border-bottom-width: 1px; border-bottom-style: solid; }
+  .border-t { border-top-width: 1px; border-top-style: solid; }
+  .border-l { border-left-width: 1px; border-left-style: solid; }
+  .border-y { border-top-width: 1px; border-bottom-width: 1px; border-style: solid; }
+
+  /* Typography */
+  .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+  .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .text-5xl { font-size: 3rem; line-height: 1; }
+  .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+  .text-xs { font-size: 0.75rem; line-height: 1rem; }
+  .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+  .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .text-base { font-size: 1rem; line-height: 1.5rem; }
+  .font-bold { font-weight: 700; }
+  .font-semibold { font-weight: 600; }
+  .font-medium { font-weight: 500; }
+  .font-normal { font-weight: 400; }
+  .italic { font-style: italic; }
+  .not-italic { font-style: normal; }
+  .uppercase { text-transform: uppercase; }
+  .tracking-tight { letter-spacing: -0.025em; }
+  .tracking-widest { letter-spacing: 0.15em; }
+  .leading-none { line-height: 1; }
+  .leading-relaxed { line-height: 1.625; }
+  .leading-snug { line-height: 1.375; }
+  .leading-tight { line-height: 1.25; }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .tabular-nums { font-variant-numeric: tabular-nums; }
+
+  /* Hero text responsive */
+  .hero-title { font-size: clamp(3rem, 9vw, 8rem); line-height: 0.9; }
+
+  /* Backdrop */
+  .backdrop-blur-xl { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+  .grayscale { filter: grayscale(100%); }
+  .contrast-125 { filter: contrast(1.25); }
+
+  /* Noise overlay */
+  .noise { position: relative; }
+  .noise::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.06; mix-blend-mode: overlay;
+  }
+
+  /* Animations */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 40s linear infinite; display: inline-block; }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-reveal { animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* Transitions */
+  .transition-colors { transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
+  .transition-transform { transition: transform 0.2s; }
+  .transition-all { transition: all 0.2s; }
+  .duration-1200 { transition-duration: 1200ms; }
+  .ease-out { transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  .hover\:scale-105:hover { transform: scale(1.05); }
+  .hover\:text-gold:hover { color: var(--gold); }
+  .hover\:bg-bone:hover { background: var(--bone); }
+  .hover\:bg-bone-10:hover { background: rgba(253, 252, 246, 0.10); }
+  .hover\:text-charcoal:hover { color: var(--charcoal); }
+  .hover\:bg-saffron:hover { background: var(--saffron); }
+  .hover\:border-gold-40:hover { border-color: rgba(212, 175, 55, 0.40); }
+
+  /* Opacity */
+  .opacity-50 { opacity: 0.5; }
+  .opacity-55 { opacity: 0.55; }
+  .opacity-60 { opacity: 0.6; }
+
+  /* Specific gradients */
+  .gradient-hero-r { background: linear-gradient(to right, var(--charcoal), rgba(15,15,15,0.70), transparent); }
+  .gradient-hero-t { background: linear-gradient(to top, var(--charcoal), transparent, rgba(15,15,15,0.40)); }
+  .gradient-img-t { background: linear-gradient(to top, var(--charcoal), transparent, transparent); }
+
+  /* Selection bg */
+  .selection-gold::selection { background: rgba(212, 175, 55, 0.30); color: var(--bone); }
+
+  /* Min height */
+  .min-h-screen { min-height: 100vh; }
+  .min-h-400 { min-height: 400px; }
+  .h-full { height: 100%; }
+  .w-full { width: 100%; }
+
+  /* Max widths */
+  .max-w-sm { max-width: 24rem; }
+  .max-w-md { max-width: 28rem; }
+  .max-w-lg { max-width: 32rem; }
+  .max-w-xl { max-width: 36rem; }
+  .max-w-2xl { max-width: 42rem; }
+  .max-w-3xl { max-width: 48rem; }
+  .max-w-4xl { max-width: 56rem; }
+
+  /* Text align */
+  .text-center { text-align: center; }
+
+  /* Responsive helpers */
+  @media (min-width: 640px) {
+    .sm\:inline { display: inline; }
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .md\:flex { display: flex; }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:items-end { align-items: flex-end; }
+    .md\:self-end { align-self: flex-end; }
+    .md\:justify-end { justify-content: flex-end; }
+    .md\:flex-row { flex-direction: row; }
+    .md\:px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
+    .md\:py-36 { padding-top: 9rem; padding-bottom: 9rem; }
+    .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
+    .md\:text-7xl { font-size: 4.5rem; line-height: 1; }
+    .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .md\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+    .md\:gap-24 { gap: 6rem; }
+    .md\:text-5xl { font-size: 3rem; line-height: 1; }
+    .md\:block { display: block; }
+    .md\:order-1 { order: 1; }
+    .md\:order-2 { order: 2; }
+    .md\:col-span-2 { grid-column: span 2 / span 2; }
+    .md\:pb-24 { padding-bottom: 6rem; }
+    .md\:aspect-auto { aspect-ratio: auto; }
+    .md\:flex-row { flex-direction: row; }
+    .md\:hidden { display: none; }
+  }
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .lg\:gap-24 { gap: 6rem; }
+    .lg\:block { display: block; }
+    .lg\:aspect-auto { aspect-ratio: auto; }
+    .lg\:order-1 { order: 1; }
+    .lg\:order-2 { order: 2; }
+    .lg\:min-h-full { min-height: 100%; }
+  }
+
+  /* ===================== Ordering experience ===================== */
+  .o-overlay{position:fixed;inset:0;z-index:80;background:var(--background);overflow-y:auto;display:none}
+  .o-overlay.open{display:block;animation:reveal .45s cubic-bezier(.16,1,.3,1) both}
+  .o-bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;background:rgba(15,15,15,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  @media(min-width:768px){.o-bar{padding:1.1rem 2.5rem}}
+  .o-bar-l{display:flex;align-items:baseline;gap:.6rem}
+  .o-bar-l b{font-family:"Playfair Display",serif;font-size:1.35rem;font-weight:700;color:var(--gold);letter-spacing:-.02em}
+  .o-bar-l span{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted-foreground)}
+  .o-actions{display:flex;align-items:center;gap:.9rem}
+  .o-back{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(253,252,246,.7);background:none;border:none;cursor:pointer;transition:color .2s}
+  .o-back:hover{color:var(--gold)}
+  .o-cartbtn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--charcoal);border:none;cursor:pointer;padding:.7rem 1.2rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;transition:background .2s}
+  .o-cartbtn:hover{background:var(--saffron)}
+  .o-cartbtn .n{background:var(--charcoal);color:var(--gold);min-width:1.2rem;height:1.2rem;padding:0 .3rem;display:inline-grid;place-items:center;font-size:.72rem}
+  .o-head{max-width:1000px;margin:0 auto;padding:3.5rem 1.5rem 1rem}
+  .o-head .ey{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:1rem}
+  .o-head h2{font-family:"Playfair Display",serif;font-size:clamp(2rem,5vw,3rem);line-height:1.05;letter-spacing:-.02em}
+  .o-head h2 em{font-style:italic;color:var(--gold)}
+  .o-head p{color:var(--muted-foreground);margin-top:.8rem;max-width:46ch}
+  .o-catnav{position:sticky;top:64px;z-index:15;display:flex;gap:.5rem;overflow-x:auto;padding:1rem 1.5rem;background:rgba(10,9,8,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);scrollbar-width:none}
+  .o-catnav::-webkit-scrollbar{display:none}
+  .o-cat-pill{white-space:nowrap;padding:.5rem 1rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-foreground);background:transparent;border:1px solid var(--border);cursor:pointer;transition:.2s}
+  .o-cat-pill:hover{color:var(--bone);border-color:rgba(212,175,55,.4)}
+  .o-cat-pill.on{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+  .o-menu{max-width:1000px;margin:0 auto;padding:0 1.5rem 7rem}
+  .o-section{padding-top:3rem;scroll-margin-top:140px}
+  .o-cat-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem}
+  .o-cat-head h3{font-family:"Playfair Display",serif;font-size:1.7rem;white-space:nowrap}
+  .o-cat-head .rule{flex:1;height:1px;background:var(--border)}
+  .o-cat-head .nt{font-size:.68rem;text-transform:uppercase;letter-spacing:.13em;color:var(--gold)}
+  .o-row{display:flex;gap:1.1rem;padding:1.4rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
+  .o-thumb{width:84px;height:84px;flex-shrink:0;object-fit:cover;background:var(--clay);border:1px solid var(--border)}
+  .o-mono{width:84px;height:84px;flex-shrink:0;display:grid;place-items:center;background:linear-gradient(135deg,var(--clay),var(--charcoal));border:1px solid var(--border);font-family:"Playfair Display",serif;font-size:1.9rem;color:var(--gold);font-style:italic}
+  .o-info{flex:1;min-width:0}
+  .o-name{font-family:"Playfair Display",serif;font-size:1.2rem;display:flex;align-items:center;gap:.5rem;margin-bottom:.25rem}
+  .o-veg{width:14px;height:14px;border:1.5px solid #5a8f43;display:grid;place-items:center;flex-shrink:0}
+  .o-veg::after{content:"";width:6px;height:6px;border-radius:50%;background:#5a8f43}
+  .o-veg.non{border-color:var(--ember)}
+  .o-veg.non::after{background:var(--ember)}
+  .o-desc{font-size:.85rem;color:var(--muted-foreground);line-height:1.5}
+  .o-spice{display:inline-flex;gap:3px;margin-top:.5rem;align-items:center}
+  .o-spice .d{width:6px;height:6px;border-radius:50%;background:var(--border)}
+  .o-spice .d.lit{background:var(--ember)}
+  .o-rt{display:flex;flex-direction:column;align-items:flex-end;gap:.7rem;flex-shrink:0}
+  .o-price{font-family:"Playfair Display",serif;font-style:italic;color:var(--gold);font-size:1.15rem;white-space:nowrap}
+  .o-add{display:inline-flex;align-items:center;gap:.3rem;background:transparent;border:1px solid rgba(212,175,55,.4);color:var(--gold);cursor:pointer;padding:.5rem .9rem;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:.18s;white-space:nowrap}
+  .o-add:hover{background:var(--gold);color:var(--charcoal)}
+  .o-add.added{background:#5a8f43;border-color:#5a8f43;color:var(--bone)}
+  .o-scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;visibility:hidden;transition:.25s;z-index:90}
+  .o-scrim.open{opacity:1;visibility:visible}
+  .o-drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,94vw);background:var(--charcoal);border-left:1px solid var(--border);z-index:95;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+  .o-drawer.open{transform:none}
+  .o-dhead{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.5rem;border-bottom:1px solid var(--border)}
+  .o-dhead h3{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--bone)}
+  .o-x{width:34px;height:34px;border:1px solid var(--border);background:transparent;color:var(--muted-foreground);font-size:1.2rem;cursor:pointer;display:grid;place-items:center;transition:.2s}
+  .o-x:hover{color:var(--gold);border-color:rgba(212,175,55,.4)}
+  .o-dbody{flex:1;overflow-y:auto;padding:.5rem 1.5rem}
+  .o-empty{text-align:center;color:var(--muted-foreground);padding:4rem 1rem}
+  .o-empty b{display:block;font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--bone);margin-bottom:.4rem}
+  .o-line{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--border)}
+  .o-line-i{flex:1}
+  .o-line-i b{font-family:"Playfair Display",serif;font-size:1rem;color:var(--bone);font-weight:600}
+  .o-line-i .lp{color:var(--gold);font-size:.85rem;margin-top:.15rem}
+  .o-qty{display:flex;align-items:center;gap:.7rem;margin-top:.6rem}
+  .o-step{width:26px;height:26px;border:1px solid var(--border);background:transparent;color:var(--bone);font-size:1rem;cursor:pointer;display:grid;place-items:center;transition:.15s}
+  .o-step:hover{border-color:var(--gold);color:var(--gold)}
+  .o-qn{min-width:18px;text-align:center;color:var(--bone);font-weight:600}
+  .o-rm{font-size:.72rem;color:var(--muted-foreground);text-decoration:underline;background:none;border:none;cursor:pointer;margin-left:.3rem}
+  .o-rm:hover{color:var(--ember)}
+  .o-line .o-price{font-size:1rem}
+  .o-ful{display:flex;gap:.6rem;margin:1.2rem 0 .3rem}
+  .o-ful button{flex:1;padding:.8rem;border:1px solid var(--border);background:transparent;color:var(--muted-foreground);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:.18s}
+  .o-ful button.on{border-color:var(--gold);background:rgba(212,175,55,.08);color:var(--bone)}
+  .o-field{margin-top:.8rem}
+  .o-field label{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-foreground);margin-bottom:.35rem}
+  .o-field input,.o-field textarea{width:100%;padding:.7rem .8rem;background:var(--background);border:1px solid var(--border);color:var(--bone);font-family:"Inter",sans-serif;font-size:.95rem}
+  .o-field input:focus,.o-field textarea:focus{outline:none;border-color:var(--gold)}
+  .o-field textarea{resize:vertical;min-height:54px}
+  #oAddr{display:none}
+  .o-foot{padding:1.2rem 1.5rem 1.5rem;border-top:1px solid var(--border);background:var(--background)}
+  .o-totals{font-size:.85rem;color:var(--muted-foreground);margin-bottom:1rem}
+  .o-totals .r{display:flex;justify-content:space-between;padding:.2rem 0}
+  .o-totals .g{display:flex;justify-content:space-between;font-family:"Playfair Display",serif;font-size:1.3rem;color:var(--bone);padding-top:.6rem;margin-top:.4rem;border-top:1px solid var(--border)}
+  .o-totals .g span:last-child{color:var(--gold)}
+  .o-place{width:100%;background:var(--gold);color:var(--charcoal);border:none;cursor:pointer;padding:1rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;transition:background .2s}
+  .o-place:hover{background:var(--saffron)}
+  .o-place:disabled{background:var(--muted);color:var(--muted-foreground);cursor:not-allowed}
+  .o-confirm{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:1.5rem;background:rgba(0,0,0,.72)}
+  .o-confirm.open{display:grid;animation:reveal .3s ease both}
+  .o-ccard{background:var(--charcoal);border:1px solid rgba(212,175,55,.3);max-width:430px;width:100%;padding:2.6rem 2rem;text-align:center}
+  .o-check{width:60px;height:60px;border-radius:50%;background:var(--gold);color:var(--charcoal);display:grid;place-items:center;font-size:1.8rem;margin:0 auto 1.3rem}
+  .o-ccard h3{font-family:"Playfair Display",serif;font-size:1.7rem;color:var(--bone);margin-bottom:.4rem}
+  .o-onum{display:inline-block;font-weight:700;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(212,175,55,.3);padding:.4rem .9rem;margin:.4rem 0 1.1rem}
+  .o-ccard p{color:var(--muted-foreground);font-size:.95rem;margin-bottom:1.5rem;line-height:1.6}
+  .o-ccard p b{color:var(--bone)}
+  .o-again{background:transparent;border:1px solid var(--gold);color:var(--gold);cursor:pointer;padding:.8rem 1.6rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;transition:.2s}
+  .o-again:hover{background:var(--gold);color:var(--charcoal)}
+  .o-pickup{display:flex;flex-direction:column;gap:.2rem;margin:1.2rem 0 .3rem;padding:.9rem 1rem;border:1px solid rgba(212,175,55,.3);background:rgba(212,175,55,.06)}
+  .o-pickup-t{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+  .o-pickup-s{font-size:.8rem;color:var(--muted-foreground)}
+  @media(max-width:560px){.o-row .o-thumb,.o-row .o-mono{width:64px;height:64px}.o-catnav{top:60px}}
+</style>
+</head>
+<body class="bg-background text-foreground font-sans overflow-x-hidden selection-gold">
+
+<!-- Navigation -->
+<nav class="fixed top-0 inset-x-0 z-50 px-6 md:px-10 py-5 flex justify-between items-center" style="background:rgba(15,15,15,0.70); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-bottom:1px solid var(--border);">
+  <a href="#top" class="flex items-baseline gap-2">
+    <span class="font-serif text-2xl font-bold tracking-tight text-gold">Spice Shop</span>
+    <span class="hidden sm:inline text-xs font-medium uppercase tracking-widest text-bone-60">Est. Dieppe</span>
+  </a>
+  <div class="hidden md:flex gap-9 text-xs uppercase tracking-widest font-semibold text-bone-70">
+    <a href="#menu" class="transition-colors hover:text-gold">Menu</a>
+    <a href="#grocery" class="transition-colors hover:text-gold">Grocery</a>
+    <a href="#catering" class="transition-colors hover:text-gold">Catering</a>
+    <a href="#story" class="transition-colors hover:text-gold">Our Story</a>
+    <a href="#visit" class="transition-colors hover:text-gold">Visit</a>
+  </div>
+  <div class="flex items-center gap-5">
+    <a href="tel:+15062042249" class="text-xs font-medium text-bone-70 hidden lg:block transition-colors hover:text-gold">(506) 204-2249</a>
+    <a href="#" onclick="openOrder(event)" class="bg-gold text-charcoal px-5 md:px-7 py-3 text-xs font-bold uppercase tracking-widest transition-colors hover:bg-saffron">Order Online</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="top" class="relative min-h-screen flex items-center pt-32 pb-20 noise">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1920&q=80" alt="Steaming butter chicken in a copper bowl" width="1920" height="1080" class="w-full h-full object-cover opacity-55">
+    <div class="absolute inset-0 gradient-hero-r"></div>
+    <div class="absolute inset-0 gradient-hero-t"></div>
+  </div>
+
+  <div class="container relative z-10">
+    <div class="max-w-3xl animate-reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="flex text-gold text-sm tracking-widest">★★★★<span class="opacity-50">★</span></div>
+        <span class="text-xs uppercase tracking-widest text-bone-60">4.4 · 368 Google Reviews · Dieppe, NB</span>
+      </div>
+      <h1 class="font-serif hero-title mb-8 text-balance">
+        Authentic <br>
+        <span class="italic text-gold">Flavors</span> of Punjab.
+      </h1>
+      <p class="text-lg md:text-xl text-bone-70 mb-12 max-w-xl leading-relaxed text-pretty">
+        From our beloved spice market to our copper-pot kitchen — a women-owned sanctuary where heritage technique meets the warmth of the Maritimes.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#" onclick="openOrder(event)" class="border border-bone-25 px-9 py-4 text-xs font-bold uppercase tracking-widest transition-colors hover:bg-bone hover:text-charcoal" style="border-color:rgba(253,252,246,0.25);">Explore the Menu</a>
+        <a href="#grocery" class="border px-9 py-4 text-xs font-bold uppercase tracking-widest transition-colors hover:bg-bone-10" style="background:rgba(253,252,246,0.05); border-color:rgba(253,252,246,0.10);">Shop Groceries</a>
+      </div>
+
+      <div class="mt-20 grid grid-cols-3 gap-8 max-w-xl border-t border-border pt-8">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted-foreground mb-2">In-Store</div>
+          <div class="font-serif text-2xl text-bone">Open Now</div>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted-foreground mb-2">Curbside</div>
+          <div class="font-serif text-2xl text-bone">10 min</div>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted-foreground mb-2">Delivery</div>
+          <div class="font-serif text-2xl text-bone">Local</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Signature Dishes -->
+<section id="menu" class="py-28 md:py-36 bg-clay-20 noise relative">
+  <div class="container">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+      <div class="max-w-xl">
+        <div class="text-xs uppercase tracking-widest text-gold mb-6">The Signature Collection</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-6 text-balance">
+          Plates worth <span class="italic text-gold">a pilgrimage.</span>
+        </h2>
+        <p class="text-muted-foreground max-w-md text-pretty">
+          A curated tasting of our guests' most loved dishes — each one slow-cooked, hand-finished, and rooted in family recipes carried across continents.
+        </p>
+      </div>
+      <a href="#" onclick="openOrder(event)" class="text-xs font-bold uppercase tracking-widest border-b border-gold pb-1 text-gold self-start md:self-end">View Full Menu →</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <article class="group cursor-pointer">
+        <div class="overflow-hidden mb-6 aspect-4-5 bg-muted relative">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80" alt="Amritsari Kulcha" width="800" height="1024" loading="lazy" class="w-full h-full object-cover transition-transform duration-1200 ease-out group-hover:scale-105">
+          <div class="absolute inset-0 gradient-img-t" style="opacity:0.6;"></div>
+        </div>
+        <div class="flex justify-between items-baseline mb-3 gap-4 border-b border-border pb-3">
+          <h3 class="font-serif text-2xl">Amritsari Kulcha</h3>
+          <span class="font-serif italic text-gold text-xl">$14.99</span>
+        </div>
+        <p class="text-sm text-muted-foreground leading-relaxed text-pretty">Hand-stretched leavened bread stuffed with spiced potato, served with tangy chole and a slick of cultured butter.</p>
+      </article>
+
+      <article class="group cursor-pointer">
+        <div class="overflow-hidden mb-6 aspect-4-5 bg-muted relative">
+          <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80" alt="Butter Paneer" width="800" height="1024" loading="lazy" class="w-full h-full object-cover transition-transform duration-1200 ease-out group-hover:scale-105">
+          <div class="absolute inset-0 gradient-img-t" style="opacity:0.6;"></div>
+        </div>
+        <div class="flex justify-between items-baseline mb-3 gap-4 border-b border-border pb-3">
+          <h3 class="font-serif text-2xl">Butter Paneer</h3>
+          <span class="font-serif italic text-gold text-xl">$18.50</span>
+        </div>
+        <p class="text-sm text-muted-foreground leading-relaxed text-pretty">House-pressed paneer simmered in a velvety tomato-fenugreek gravy finished with cream and roasted kasuri methi.</p>
+      </article>
+
+      <article class="group cursor-pointer">
+        <div class="overflow-hidden mb-6 aspect-4-5 bg-muted relative">
+          <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=800&q=80" alt="Alphonso Mango Lassi" width="800" height="1024" loading="lazy" class="w-full h-full object-cover transition-transform duration-1200 ease-out group-hover:scale-105">
+          <div class="absolute inset-0 gradient-img-t" style="opacity:0.6;"></div>
+        </div>
+        <div class="flex justify-between items-baseline mb-3 gap-4 border-b border-border pb-3">
+          <h3 class="font-serif text-2xl">Alphonso Mango Lassi</h3>
+          <span class="font-serif italic text-gold text-xl">$5.99</span>
+        </div>
+        <p class="text-sm text-muted-foreground leading-relaxed text-pretty">Cold-pressed Alphonso pulp whipped with thick yogurt, cardamom dust, and a whisper of saffron.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="bg-gold text-charcoal py-6 overflow-hidden whitespace-nowrap border-y border-gold-soft">
+  <div class="animate-marquee font-serif italic text-3xl md:text-4xl">
+    <span class="px-8">Garam Masala <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Kashmiri Chili <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Green Cardamom <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Saffron Stigma <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Hand-Ground Turmeric <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Black Cumin <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Fenugreek <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Star Anise <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Garam Masala <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Kashmiri Chili <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Green Cardamom <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Saffron Stigma <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Hand-Ground Turmeric <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Black Cumin <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Fenugreek <span style="opacity:0.6;">✦</span></span>
+    <span class="px-8">Star Anise <span style="opacity:0.6;">✦</span></span>
+  </div>
+</div>
+
+<!-- Grocery -->
+<section id="grocery" class="py-28 md:py-36 border-t border-border">
+  <div class="container">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div class="order-2 lg:order-1 relative">
+        <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=1280&q=80" alt="Spice Shop grocery interior" width="1280" height="896" loading="lazy" class="w-full aspect-4-3 object-cover">
+        <div class="absolute -bottom-6 -right-6 bg-charcoal border border-border p-6 max-w-xs hidden md:block">
+          <div class="text-xs uppercase tracking-widest text-gold mb-2">Since 2014</div>
+          <div class="font-serif text-lg text-bone leading-snug">Dieppe's first authentic Indian pantry.</div>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="text-xs uppercase tracking-widest text-gold mb-6">The Grocery Experience</div>
+        <h2 class="font-serif text-5xl md:text-6xl mb-8 leading-tight text-balance">
+          Spices, lentils & <span class="italic text-gold">imports</span> for the home kitchen.
+        </h2>
+        <p class="text-muted-foreground text-lg mb-10 leading-relaxed text-pretty max-w-lg">
+          Our roots run deep. From hand-ground masalas to small-batch chutneys and pantry essentials sourced from trusted growers — the same ingredients our chefs cook with, ready for yours.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-10">
+          <div class="border-l border-gold-40 pl-5">
+            <h5 class="font-serif text-lg mb-2 text-bone">In-Store Shopping</h5>
+            <p class="text-sm text-muted-foreground leading-relaxed">Browse our curated aisles at 75 Champlain St, daily.</p>
+          </div>
+          <div class="border-l border-gold-40 pl-5">
+            <h5 class="font-serif text-lg mb-2 text-bone">Curbside Pickup</h5>
+            <p class="text-sm text-muted-foreground leading-relaxed">Order ahead — we'll have it waiting at your door.</p>
+          </div>
+          <div class="border-l border-gold-40 pl-5">
+            <h5 class="font-serif text-lg mb-2 text-bone">Local Delivery</h5>
+            <p class="text-sm text-muted-foreground leading-relaxed">Same-day delivery across Greater Moncton.</p>
+          </div>
+          <div class="border-l border-gold-40 pl-5">
+            <h5 class="font-serif text-lg mb-2 text-bone">Catering & Bulk</h5>
+            <p class="text-sm text-muted-foreground leading-relaxed">From dinner parties to weddings — at any scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section id="story" class="py-28 md:py-36 bg-clay-30 noise relative border-y border-border">
+  <div class="container text-center max-w-4xl">
+    <div class="text-xs uppercase tracking-widest text-gold mb-6">Women-Owned · LGBTQ+ Friendly</div>
+    <h2 class="font-serif text-5xl md:text-7xl leading-tight mb-10 text-balance">
+      Forged in fire, <br><span class="italic text-gold">led by women.</span>
+    </h2>
+    <p class="text-lg md:text-xl text-bone-75 leading-relaxed text-pretty max-w-2xl mx-auto mb-12">
+      Spice Shop began as a small storefront with one promise — to keep the recipes of our mothers alive in a new home. Today, our bistro and market in Dieppe carry that same promise in every plate, every jar, every welcome.
+    </p>
+    <div class="flex flex-wrap justify-center gap-3 text-xs uppercase tracking-widest text-bone-60">
+      <span class="border border-gold-30 px-4 py-2">Women-Owned</span>
+      <span class="border border-gold-30 px-4 py-2">LGBTQ+ Friendly</span>
+      <span class="border border-gold-30 px-4 py-2">Family Recipes</span>
+      <span class="border border-gold-30 px-4 py-2">Locally Loved</span>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="py-28 md:py-36">
+  <div class="container">
+    <div class="text-center mb-20">
+      <div class="text-xs uppercase tracking-widest text-gold mb-6">Voices of our Community</div>
+      <h2 class="font-serif text-5xl md:text-6xl text-balance">What guests are <span class="italic text-gold">saying.</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <figure class="bg-muted p-10 border border-border transition-colors hover:border-gold-40 flex flex-col">
+        <div class="text-gold mb-6 tracking-widest">★★★★★</div>
+        <blockquote class="font-serif text-xl italic text-bone-90 mb-8 leading-snug text-pretty flex-1">
+          "Excellent catering experience. We ordered from Spice Shop and our guests couldn't stop raving — every dish was authentic, fresh, and beautifully presented."
+        </blockquote>
+        <figcaption>
+          <div class="font-bold text-sm text-bone">Narinder Kaur</div>
+          <div class="text-xs text-muted-foreground tracking-widest uppercase mt-1">Local Guide · 9 reviews</div>
+        </figcaption>
+      </figure>
+
+      <figure class="bg-muted p-10 border border-border transition-colors hover:border-gold-40 flex flex-col">
+        <div class="text-gold mb-6 tracking-widest">★★★★★</div>
+        <blockquote class="font-serif text-xl italic text-bone-90 mb-8 leading-snug text-pretty flex-1">
+          "The food was absolutely delicious — full of rich flavor, fresh, and perfectly cooked. Every dish tasted authentic and satisfying."
+        </blockquote>
+        <figcaption>
+          <div class="font-bold text-sm text-bone">Ayush Dabur</div>
+          <div class="text-xs text-muted-foreground tracking-widest uppercase mt-1">Verified Guest</div>
+        </figcaption>
+      </figure>
+
+      <figure class="bg-muted p-10 border border-border transition-colors hover:border-gold-40 flex flex-col">
+        <div class="text-gold mb-6 tracking-widest">★★★★★</div>
+        <blockquote class="font-serif text-xl italic text-bone-90 mb-8 leading-snug text-pretty flex-1">
+          "The best place for authentic Indian cuisine. The butter paneer was rich and creamy and the pav bhaji was perfectly spiced. Excellent value."
+        </blockquote>
+        <figcaption>
+          <div class="font-bold text-sm text-bone">Arash Kahlon</div>
+          <div class="text-xs text-muted-foreground tracking-widest uppercase mt-1">Verified Guest</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Catering CTA -->
+<section id="catering" class="py-28 md:py-36 bg-gradient-br border-y border-border relative noise">
+  <div class="container grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="text-xs uppercase tracking-widest text-gold mb-6">Catering</div>
+      <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-6 text-balance">
+        For the gatherings that <span class="italic text-gold">matter.</span>
+      </h2>
+      <p class="text-muted-foreground text-lg max-w-md text-pretty">
+        Weddings, corporate dinners, intimate celebrations — we'll bring the full warmth of our kitchen to you. Custom menus, full-service, every detail handled.
+      </p>
+    </div>
+    <div class="flex md:justify-end">
+      <a href="tel:+15062042249" class="inline-flex items-center gap-4 bg-gold text-charcoal px-8 py-5 text-xs font-bold uppercase tracking-widest transition-colors hover:bg-saffron">
+        Plan Your Event
+        <span class="text-base">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Visit -->
+<section id="visit" class="py-28 md:py-36">
+  <div class="container">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+      <div>
+        <div class="text-xs uppercase tracking-widest text-gold mb-6">Visit Us</div>
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-10 text-balance">
+          Find us in <span class="italic text-gold">Dieppe.</span>
+        </h2>
+        <div class="space-y-8">
+          <div>
+            <div class="text-xs uppercase tracking-widest text-muted-foreground mb-2">Address</div>
+            <p class="font-serif text-2xl text-bone">75 Champlain St<br>Dieppe, NB E1A 1N5</p>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-widest text-muted-foreground mb-2">Reservations & Catering</div>
+            <a href="tel:+15062042249" class="font-serif text-2xl text-gold transition-colors hover:text-saffron">(506) 204-2249</a>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-widest text-muted-foreground mb-3">Hours</div>
+            <ul class="space-y-2 text-bone-80">
+              <li class="flex justify-between border-b border-border pb-2 text-sm">
+                <span>Monday – Thursday</span><span class="text-muted-foreground tabular-nums">11:00 am – 10:00 pm</span>
+              </li>
+              <li class="flex justify-between border-b border-border pb-2 text-sm">
+                <span>Friday – Saturday</span><span class="text-muted-foreground tabular-nums">11:00 am – 11:00 pm</span>
+              </li>
+              <li class="flex justify-between border-b border-border pb-2 text-sm">
+                <span>Sunday</span><span class="text-muted-foreground tabular-nums">12:00 pm – 9:00 pm</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bg-muted border border-border aspect-square lg:aspect-auto min-h-400 relative overflow-hidden lg:min-h-full">
+        <iframe
+          title="Spice Shop on the map"
+          src="https://www.google.com/maps?q=75+Champlain+St,+Dieppe,+NB+E1A+1N5&output=embed"
+          class="w-full h-full grayscale contrast-125"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          style="border:0; min-height:400px;"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 border-t border-border bg-charcoal">
+  <div class="container grid md:grid-cols-4 gap-12">
+    <div class="md:col-span-2">
+      <h2 class="font-serif text-3xl font-bold text-gold mb-5 tracking-tight">Spice Shop</h2>
+      <p class="text-muted-foreground max-w-sm leading-relaxed mb-6 text-pretty">
+        Dieppe's premier destination for authentic Indian groceries and bistro-style dining. Women-owned and LGBTQ+ friendly.
+      </p>
+      <div class="flex gap-5 text-bone-70 text-xs uppercase tracking-widest">
+        <a href="https://facebook.com" class="transition-colors hover:text-gold">Facebook</a>
+        <a href="#" class="transition-colors hover:text-gold">Instagram</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-bold text-xs uppercase tracking-widest mb-5 text-gold">Location</h4>
+      <address class="not-italic text-muted-foreground text-sm leading-loose">
+        75 Champlain St<br>
+        Dieppe, NB E1A 1N5<br>
+        <a href="tel:+15062042249" class="transition-colors hover:text-gold">(506) 204-2249</a>
+      </address>
+    </div>
+    <div>
+      <h4 class="font-bold text-xs uppercase tracking-widest mb-5 text-gold">Services</h4>
+      <ul class="text-muted-foreground text-sm leading-loose">
+        <li>In-Store Shopping</li>
+        <li>Curbside Pickup</li>
+        <li>Local Delivery</li>
+        <li>Catering</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container pt-14 mt-14 border-t border-border flex flex-col md:flex-row justify-between gap-4 text-xs uppercase tracking-widest text-muted-foreground">
+    <span>© 2025 Spice Shop · Dieppe, New Brunswick</span>
+    <span>Crafted with warmth.</span>
+  </div>
+</footer>
+<!-- ===================== ORDERING OVERLAY ===================== -->
+<div class="o-overlay" id="orderOverlay">
+  <div class="o-bar">
+    <div class="o-bar-l"><b>Spice Shop</b><span>Order Online</span></div>
+    <div class="o-actions">
+      <button class="o-back" onclick="closeOrder()">← Back to site</button>
+      <button class="o-cartbtn" onclick="openCart()">Order&nbsp; <span class="n" id="oCount">0</span></button>
+    </div>
+  </div>
+  <div class="o-head">
+    <div class="ey">Curbside Pickup · Order Ahead</div>
+    <h2>Order from our <em>kitchen.</em></h2>
+    <p>Slow-cooked, hand-finished, ready when you are. Build your order below — we'll take it from here.</p>
+  </div>
+  <nav class="o-catnav" id="oCatNav"></nav>
+  <div class="o-menu" id="oMenu"></div>
+</div>
+
+<div class="o-scrim" id="oScrim" onclick="closeCart()"></div>
+<aside class="o-drawer" id="oDrawer" aria-label="Your order">
+  <div class="o-dhead"><h3>Your order</h3><button class="o-x" onclick="closeCart()" aria-label="Close">×</button></div>
+  <div class="o-dbody" id="oDrawerBody"></div>
+  <div class="o-foot" id="oDrawerFoot" style="display:none">
+    <div class="o-totals" id="oTotals"></div>
+    <button class="o-place" id="oPlace" onclick="placeOrder()">Place order</button>
+  </div>
+</aside>
+
+<div class="o-confirm" id="oConfirm">
+  <div class="o-ccard">
+    <div class="o-check">✓</div>
+    <h3>Order received</h3>
+    <div class="o-onum" id="oOnum">#SPICE-0000</div>
+    <p id="oConfirmMsg"></p>
+    <button class="o-again" onclick="resetOrder()">Place another order</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const IMG={
+    'butter-chicken':'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&q=80',
+    'butter-paneer':'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&q=80',
+    'tikka-masala':'https://loremflickr.com/400/400/curry,chicken?lock=21',
+    'dal-makhani':'https://loremflickr.com/400/400/dal,curry?lock=22',
+    'chana-masala':'https://loremflickr.com/400/400/chickpea,curry?lock=23',
+    'pav-bhaji':'https://loremflickr.com/400/400/indian,food?lock=24',
+    'kulcha':'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80',
+    'garlic-naan':'https://loremflickr.com/400/400/naan?lock=31',
+    'butter-naan':'https://loremflickr.com/400/400/naan,bread?lock=32',
+    'tandoori-roti':'https://loremflickr.com/400/400/flatbread?lock=33',
+    'mango-lassi':'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400&q=80',
+    'sweet-lassi':'https://loremflickr.com/400/400/lassi?lock=41',
+    'salted-lassi':'https://loremflickr.com/400/400/yogurt,drink?lock=42',
+    'masala-chai':'https://loremflickr.com/400/400/chai,tea?lock=43',
+    'garam-masala':'https://loremflickr.com/400/400/spices?lock=51',
+    'basmati':'https://loremflickr.com/400/400/rice?lock=52',
+    'chutney':'https://loremflickr.com/400/400/chutney?lock=53'
+  };
+  const MENU=[
+    {cat:'Signature Plates',note:'Mains',items:[
+      {id:'butter-chicken',name:'Butter Chicken',price:18.99,veg:false,spice:2,desc:'Tender chicken in a velvety tomato-fenugreek gravy, finished with cream.'},
+      {id:'butter-paneer',name:'Butter Paneer',price:18.50,veg:true,spice:2,desc:'House-pressed paneer in a velvety tomato-fenugreek gravy with roasted kasuri methi.'},
+      {id:'tikka-masala',name:'Chicken Tikka Masala',price:19.50,veg:false,spice:3,desc:'Charred tandoori chicken simmered in a spiced creamy masala.'},
+      {id:'dal-makhani',name:'Dal Makhani',price:15.99,veg:true,spice:1,desc:'Black lentils slow-simmered overnight with butter and a touch of cream.'},
+      {id:'chana-masala',name:'Chana Masala',price:14.99,veg:true,spice:2,desc:'Chickpeas stewed with onion, tomato and warm hand-ground spices.'},
+      {id:'pav-bhaji',name:'Pav Bhaji',price:13.99,veg:true,spice:2,desc:'Mashed spiced vegetables with buttered, griddled rolls.'}
+    ]},
+    {cat:'Breads',note:'From the tandoor',items:[
+      {id:'kulcha',name:'Amritsari Kulcha',price:14.99,veg:true,spice:1,desc:'Hand-stretched leavened bread stuffed with spiced potato, served with chole and cultured butter.'},
+      {id:'garlic-naan',name:'Garlic Naan',price:4.50,veg:true,spice:0,desc:'Tandoor-baked naan brushed with fresh garlic and butter.'},
+      {id:'butter-naan',name:'Butter Naan',price:3.99,veg:true,spice:0,desc:'Classic soft tandoor naan with a slick of butter.'},
+      {id:'tandoori-roti',name:'Tandoori Roti',price:2.99,veg:true,spice:0,desc:'Whole-wheat flatbread straight from the clay oven.'}
+    ]},
+    {cat:'Drinks',note:'To cool the heat',items:[
+      {id:'mango-lassi',name:'Alphonso Mango Lassi',price:5.99,veg:true,spice:0,desc:'Cold-pressed Alphonso pulp whipped with yogurt, cardamom and saffron.'},
+      {id:'sweet-lassi',name:'Sweet Lassi',price:4.99,veg:true,spice:0,desc:'Thick yogurt blended smooth with a touch of sugar and rose.'},
+      {id:'salted-lassi',name:'Salted Lassi',price:4.99,veg:true,spice:0,desc:'Yogurt churned with toasted cumin and black salt.'},
+      {id:'masala-chai',name:'Masala Chai',price:3.50,veg:true,spice:0,desc:'Black tea simmered with milk, ginger and green cardamom.'}
+    ]},
+    {cat:'Pantry',note:'Take the kitchen home',items:[
+      {id:'garam-masala',name:'House Garam Masala · 100g',price:8.99,veg:true,spice:0,desc:'Our hand-ground signature blend, toasted in small batches.'},
+      {id:'basmati',name:'Aged Basmati Rice · 2kg',price:14.99,veg:true,spice:0,desc:'Long-grain basmati, naturally aged for a delicate aroma.'},
+      {id:'chutney',name:'Mango Chutney · 250ml',price:6.99,veg:true,spice:1,desc:'Small-batch, sweet-and-tangy, made the way our mothers did.'}
+    ]}
+  ];
+  const HST=0.15;
+  const FLAT={}; MENU.forEach(c=>c.items.forEach(it=>FLAT[it.id]=it));
+  let cart={}, fulfillment='pickup';
+
+  function spice(n){if(!n)return '';let d='';for(let i=0;i<3;i++)d+='<span class="d'+(i<n?' lit':'')+'"></span>';return '<span class="o-spice" title="Spice '+n+' of 3">'+d+'</span>';}
+  function thumb(it){return IMG[it.id]?'<img class="o-thumb" src="'+IMG[it.id]+'" alt="'+it.name+'" loading="lazy" onerror="__imgFallback(this,\''+it.name.charAt(0)+'\')">':'<div class="o-mono">'+it.name.charAt(0)+'</div>';}
+  window.__imgFallback=function(img,ltr){var d=document.createElement('div');d.className='o-mono';d.textContent=ltr;img.replaceWith(d);};
+
+  function build(){
+    const nav=document.getElementById('oCatNav'), menu=document.getElementById('oMenu');
+    MENU.forEach(function(c,i){
+      const slug='ocat-'+i;
+      nav.insertAdjacentHTML('beforeend','<button class="o-cat-pill'+(i===0?' on':'')+'" data-slug="'+slug+'" onclick="document.getElementById(\''+slug+'\').scrollIntoView({behavior:\'smooth\',block:\'start\'})">'+c.cat+'</button>');
+      const rows=c.items.map(function(it){return ''+
+        '<div class="o-row">'+thumb(it)+
+          '<div class="o-info">'+
+            '<div class="o-name"><span class="o-veg '+(it.veg?'':'non')+'" title="'+(it.veg?'Vegetarian':'Non-vegetarian')+'"></span>'+it.name+'</div>'+
+            '<div class="o-desc">'+it.desc+'</div>'+spice(it.spice)+
+          '</div>'+
+          '<div class="o-rt"><span class="o-price">$'+it.price.toFixed(2)+'</span>'+
+          '<button class="o-add" id="oadd-'+it.id+'" onclick="__add(\''+it.id+'\')">+ Add</button></div>'+
+        '</div>';}).join('');
+      menu.insertAdjacentHTML('beforeend','<section class="o-section" id="'+slug+'"><div class="o-cat-head"><h3>'+c.cat+'</h3><span class="rule"></span><span class="nt">'+c.note+'</span></div>'+rows+'</section>');
+    });
+    const pills=[].slice.call(document.querySelectorAll('.o-cat-pill'));
+    const obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)pills.forEach(function(p){p.classList.toggle('on',p.dataset.slug===e.target.id);});});},{root:document.getElementById('orderOverlay'),rootMargin:'-150px 0px -70% 0px'});
+    document.querySelectorAll('.o-section').forEach(function(s){obs.observe(s);});
+    // make the 3 signature cards open the order flow too
+    document.querySelectorAll('#menu article').forEach(function(a){a.addEventListener('click',function(e){openOrder(e);});});
+  }
+
+  function count(){document.getElementById('oCount').textContent=Object.keys(cart).reduce(function(a,k){return a+cart[k];},0);}
+
+  window.__add=function(id){cart[id]=(cart[id]||0)+1;var b=document.getElementById('oadd-'+id);b.classList.add('added');b.textContent='✓ Added';setTimeout(function(){b.classList.remove('added');b.textContent='+ Add';},900);count();renderCart();};
+  window.__qty=function(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];count();renderCart();};
+  window.__rm=function(id){delete cart[id];count();renderCart();};
+  window.__ful=function(f){fulfillment=f;document.querySelectorAll('.o-ful button').forEach(function(b){b.classList.toggle('on',b.dataset.f===f);});document.getElementById('oAddr').style.display=f==='delivery'?'block':'none';validate();};
+  window.__val=function(){validate();};
+
+  function renderCart(){
+    var body=document.getElementById('oDrawerBody'), foot=document.getElementById('oDrawerFoot');
+    var ids=Object.keys(cart);
+    if(!ids.length){body.innerHTML='<div class="o-empty"><b>Your order is empty</b>Add a few plates to get started.</div>';foot.style.display='none';return;}
+    var lines='',sub=0;
+    ids.forEach(function(id){var it=FLAT[id],q=cart[id],lt=it.price*q;sub+=lt;
+      lines+='<div class="o-line"><div class="o-line-i"><b>'+it.name+'</b><div class="lp">$'+it.price.toFixed(2)+'</div>'+
+        '<div class="o-qty"><button class="o-step" onclick="__qty(\''+id+'\',-1)">−</button><span class="o-qn">'+q+'</span>'+
+        '<button class="o-step" onclick="__qty(\''+id+'\',1)">+</button><button class="o-rm" onclick="__rm(\''+id+'\')">Remove</button></div></div>'+
+        '<span class="o-price">$'+lt.toFixed(2)+'</span></div>';});
+    body.innerHTML=lines+
+      '<div class="o-pickup"><span class="o-pickup-t">Curbside Pickup</span><span class="o-pickup-s">75 Champlain St, Dieppe — we\'ll call when it\'s ready.</span></div>'+
+      '<div class="o-field"><label>Name</label><input id="oName" oninput="__val()" placeholder="Your name"></div>'+
+      '<div class="o-field"><label>Phone</label><input id="oPhone" oninput="__val()" placeholder="(506) 000-0000"></div>'+
+      '<div class="o-field"><label>Notes (optional)</label><textarea id="oNotes" placeholder="Allergies, spice preference, instructions…"></textarea></div>';
+    var tax=sub*HST, total=sub+tax;
+    document.getElementById('oTotals').innerHTML='<div class="r"><span>Subtotal</span><span>$'+sub.toFixed(2)+'</span></div>'+
+      '<div class="r"><span>HST (15%)</span><span>$'+tax.toFixed(2)+'</span></div>'+
+      '<div class="g"><span>Total</span><span>$'+total.toFixed(2)+'</span></div>';
+    foot.style.display='block';
+    validate();
+  }
+
+  function val(el){return el?(el.value||''):'';}
+  function validate(){var n=val(document.getElementById('oName')),p=val(document.getElementById('oPhone'));
+    document.getElementById('oPlace').disabled=!(n.trim()&&p.trim());}
+
+  window.openOrder=function(e){if(e&&e.preventDefault)e.preventDefault();document.getElementById('orderOverlay').classList.add('open');document.body.style.overflow='hidden';document.getElementById('orderOverlay').scrollTop=0;};
+  window.closeOrder=function(){document.getElementById('orderOverlay').classList.remove('open');document.body.style.overflow='';};
+  window.openCart=function(){renderCart();document.getElementById('oDrawer').classList.add('open');document.getElementById('oScrim').classList.add('open');};
+  window.closeCart=function(){document.getElementById('oDrawer').classList.remove('open');document.getElementById('oScrim').classList.remove('open');};
+  window.placeOrder=function(){var name=val(document.getElementById('oName')).trim();var num='#SPICE-'+Math.floor(1000+Math.random()*9000);
+    document.getElementById('oOnum').textContent=num;
+    var how="Ready for curbside pickup at 75 Champlain St — we'll call when it's ready to confirm timing and payment.";
+    document.getElementById('oConfirmMsg').innerHTML='Thanks, <b>'+(name||'friend')+'</b> — we\'ve got your order. '+how;
+    closeCart();document.getElementById('oConfirm').classList.add('open');};
+  window.resetOrder=function(){cart={};fulfillment='pickup';count();renderCart();document.getElementById('oConfirm').classList.remove('open');};
+
+  build();count();
+})();
+</script>
+
+</body>
+</html>
