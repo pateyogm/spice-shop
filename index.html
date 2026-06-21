@@ -27,7 +27,7 @@
     --border: rgba(212, 175, 55, 0.12);
   }
   *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; border-color: var(--border); }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
   body {
     background: var(--background);
     color: var(--foreground);
@@ -35,6 +35,7 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
   }
   ::selection { background: rgba(212, 175, 55, 0.35); color: var(--bone); }
   img { max-width: 100%; display: block; }
@@ -304,6 +305,18 @@
     .lg\:min-h-full { min-height: 100%; }
   }
 
+  /* Mobile nav */
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; background: none; border: none; color: var(--gold); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+  .mobile-menu { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: rgba(15,15,15,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); transition: max-height 0.3s ease; }
+  .mobile-menu.open { max-height: 26rem; }
+  .mobile-menu a { padding: 1rem 1.5rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(253,252,246,0.7); border-top: 1px solid var(--border); transition: color 0.2s, background-color 0.2s; }
+  .mobile-menu a:hover { color: var(--gold); background: rgba(212,175,55,0.06); }
+  .mobile-menu a.mobile-menu-tel { color: var(--gold); font-weight: 700; }
+  @media (min-width: 768px) {
+    .nav-toggle { display: none !important; }
+    .mobile-menu { display: none !important; }
+  }
+
   /* ===================== Ordering experience ===================== */
   .o-overlay{position:fixed;inset:0;z-index:80;background:var(--background);overflow-y:auto;display:none}
   .o-overlay.open{display:block;animation:reveal .45s cubic-bezier(.16,1,.3,1) both}
@@ -313,7 +326,7 @@
   .o-bar-l b{font-family:"Playfair Display",serif;font-size:1.35rem;font-weight:700;color:var(--gold);letter-spacing:-.02em}
   .o-bar-l span{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted-foreground)}
   .o-actions{display:flex;align-items:center;gap:.9rem}
-  .o-back{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(253,252,246,.7);background:none;border:none;cursor:pointer;transition:color .2s}
+  .o-back{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(253,252,246,.7);background:none;border:none;cursor:pointer;transition:color .2s;white-space:nowrap}
   .o-back:hover{color:var(--gold)}
   .o-cartbtn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--charcoal);border:none;cursor:pointer;padding:.7rem 1.2rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;transition:background .2s}
   .o-cartbtn:hover{background:var(--saffron)}
@@ -404,7 +417,19 @@
   .o-pickup{display:flex;flex-direction:column;gap:.2rem;margin:1.2rem 0 .3rem;padding:.9rem 1rem;border:1px solid rgba(212,175,55,.3);background:rgba(212,175,55,.06)}
   .o-pickup-t{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
   .o-pickup-s{font-size:.8rem;color:var(--muted-foreground)}
-  @media(max-width:560px){.o-row .o-thumb,.o-row .o-mono{width:64px;height:64px}.o-catnav{top:60px}}
+  @media(max-width:560px){
+    .o-row .o-thumb,.o-row .o-mono{width:64px;height:64px}
+    .o-catnav{top:60px}
+    .o-bar{padding:.85rem 1rem;gap:.5rem}
+    .o-bar-l{gap:.4rem;overflow:hidden}
+    .o-bar-l b{font-size:1.1rem}
+    .o-sub{display:none}
+    .o-actions{gap:.5rem}
+    .o-back{padding:.5rem;font-size:0}
+    .o-back-arrow{font-size:1rem}
+    .o-back-label{display:none}
+    .o-cartbtn{padding:.6rem .85rem;gap:.4rem}
+  }
 </style>
 </head>
 <body class="bg-background text-foreground font-sans overflow-x-hidden selection-gold">
@@ -429,6 +454,15 @@
   <div class="flex items-center gap-5">
     <a href="tel:+15062042249" class="text-xs font-medium text-bone-70 hidden lg:block transition-colors hover:text-gold">(506) 204-2249</a>
     <a href="#" onclick="openOrder(event)" class="bg-gold text-charcoal px-5 md:px-7 py-3 text-xs font-bold uppercase tracking-widest transition-colors hover:bg-saffron">Order Online</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMobileMenu()"><span id="navToggleIcon">☰</span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#menu" onclick="closeMobileMenu()">Menu</a>
+    <a href="#grocery" onclick="closeMobileMenu()">Grocery</a>
+    <a href="#catering" onclick="closeMobileMenu()">Catering</a>
+    <a href="#story" onclick="closeMobileMenu()">Our Story</a>
+    <a href="#visit" onclick="closeMobileMenu()">Visit</a>
+    <a href="tel:+15062042249" class="mobile-menu-tel" onclick="closeMobileMenu()">Call (506) 204-2249</a>
   </div>
 </nav>
 
@@ -529,7 +563,7 @@
 </section>
 
 <!-- Marquee -->
-<div class="bg-gold text-charcoal py-6 overflow-hidden whitespace-nowrap border-y border-gold-soft">
+<div class="bg-gold text-charcoal py-6 overflow-hidden whitespace-nowrap border-y border-gold-soft" style="width:100%; max-width:100vw;">
   <div class="animate-marquee font-serif italic text-3xl md:text-4xl">
     <span class="px-8">Garam Masala <span style="opacity:0.6;">✦</span></span>
     <span class="px-8">Kashmiri Chili <span style="opacity:0.6;">✦</span></span>
@@ -758,9 +792,9 @@
 <!-- ===================== ORDERING OVERLAY ===================== -->
 <div class="o-overlay" id="orderOverlay">
   <div class="o-bar">
-    <div class="o-bar-l"><b>Spice Shop</b><span>Order Online</span></div>
+    <div class="o-bar-l"><b>Spice Shop</b><span class="o-sub">Order Online</span></div>
     <div class="o-actions">
-      <button class="o-back" onclick="closeOrder()">← Back to site</button>
+      <button class="o-back" onclick="closeOrder()" aria-label="Back to site"><span class="o-back-arrow">←</span><span class="o-back-label">Back to site</span></button>
       <button class="o-cartbtn" onclick="openCart()">Order&nbsp; <span class="n" id="oCount">0</span></button>
     </div>
   </div>
@@ -906,6 +940,18 @@
   function val(el){return el?(el.value||''):'';}
   function validate(){var n=val(document.getElementById('oName')),p=val(document.getElementById('oPhone'));
     document.getElementById('oPlace').disabled=!(n.trim()&&p.trim());}
+
+  window.toggleMobileMenu=function(){
+    var menu=document.getElementById('mobileMenu'),btn=document.getElementById('navToggle'),icon=document.getElementById('navToggleIcon');
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    icon.textContent=open?'✕':'☰';
+  };
+  window.closeMobileMenu=function(){
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded','false');
+    document.getElementById('navToggleIcon').textContent='☰';
+  };
 
   window.openOrder=function(e){if(e&&e.preventDefault)e.preventDefault();document.getElementById('orderOverlay').classList.add('open');document.body.style.overflow='hidden';document.getElementById('orderOverlay').scrollTop=0;};
   window.closeOrder=function(){document.getElementById('orderOverlay').classList.remove('open');document.body.style.overflow='';};
